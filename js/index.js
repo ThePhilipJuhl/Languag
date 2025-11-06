@@ -9,36 +9,56 @@ const mapping = {
   u: 's', v: 't', w: 'u', x: 'v', y: 'w', z: 'x'
 }
 
+const reverseMapping = Object.fromEntries(
+    Object.entries(mapping).map(([key, value]) => [value, key])
+);
+
 
 function translateToLeFun(text){
-    let translated = "";
-    for (let char of text.toLowerCae()) {
+    let translatedTo = "";
+    for (let char of text.toLowerCase()) {
         if (mapping[char]) {
-            translated += mapping[char];
+            translatedTo += mapping[char];
         }
         else {
-            translated += char;
+            translatedTo += char;
         }
     }
-    return translated;
+    return translatedTo;
 }
 
 
-function translateFromLeFun(text){
 
-} 
+function translateFromLeFun(text) {
+    let translatedFrom = "";
+    for (let char of text.toLowerCase()) {
+        if (reverseMapping[char]) {
+            translatedFrom += reverseMapping[char];
+        } else {
+            translatedFrom += char; 
+        }
+    }
+    return translatedFrom;
+}
 
 
 
 formTo.addEventListener("submit", (event) => {
     event.preventDefault();
-    // const inputValue = event.target.querySelector(".textInput").value;
-    // const output = event.target.querySelector("#outputText");
-    // output.innerText = translateToLeFun(inputValue);
-    console.log("TO-submitted");
+    const inputValue = formTo.querySelector("#txtAuthorTo").value;
+    const output = formTo.querySelector("#outputTextTo");
+    output.innerText = translateToLeFun(inputValue);
+    // console.log("TO-submitted");
+    // console.log(output.innerText);
+    
 });
 
 formFrom.addEventListener("submit", (event) => {
     event.preventDefault();
+    const inputValue = formFrom.querySelector("#txtAuthorFrom").value;
+    const output = formFrom.querySelector("#outputTextFrom");
+    output.innerText = translateFromLeFun(inputValue);
     console.log("FROM-submitted!");
+    console.log(output.innerText);
+    
 });
