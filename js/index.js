@@ -1,14 +1,14 @@
 const formTo = document.getElementById("translate-to");
 const formFrom = document.getElementById("translate-from");
-
+// TODO læs op :) 
 const mapping = {
-  a: 'e', b: 'i', c: 'o', d: 'u', e: 'a',
-  f: 'b', g: 'c', h: 'd', i: 'f', j: 'g',
-  k: 'h', l: 'j', m: 'k', n: 'l', o: 'm',
-  p: 'n', q: 'o', r: 'p', s: 'q', t: 'r',
-  u: 's', v: 't', w: 'u', x: 'v', y: 'w', z: 'x', "æ": '*', "ø": '&', "å": '^'
- 
-}
+  a: 'e', b: 'f', c: 'g', d: 'h', e: 'i',
+  f: 'j', g: 'k', h: 'l', i: 'm', j: 'n',
+  k: 'o', l: 'p', m: 'q', n: 'r', o: 's',
+  p: 't', q: 'u', r: 'v', s: 'w', t: 'x',
+  u: 'y', v: 'z', w: 'a', x: 'b', y: 'c', z: 'd',
+  "æ": '*', "ø": '&', "å": '^'
+};
 
 const reverseMapping = Object.fromEntries(
     Object.entries(mapping).map(([key, value]) => [value, key])
