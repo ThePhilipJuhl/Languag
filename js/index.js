@@ -6,7 +6,8 @@ const mapping = {
   f: 'b', g: 'c', h: 'd', i: 'f', j: 'g',
   k: 'h', l: 'j', m: 'k', n: 'l', o: 'm',
   p: 'n', q: 'o', r: 'p', s: 'q', t: 'r',
-  u: 's', v: 't', w: 'u', x: 'v', y: 'w', z: 'x'
+  u: 's', v: 't', w: 'u', x: 'v', y: 'w', z: 'x', "æ": '*', "ø": '&', "å": '^'
+ 
 }
 
 const reverseMapping = Object.fromEntries(
